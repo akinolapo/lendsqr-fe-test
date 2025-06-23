@@ -1,7 +1,14 @@
-.dashboardContainer {
+.dashboardLayout {
   display: flex;
+  flex-direction: column;
   height: 100vh;
-  background-color: #f5f6fa;
+  background-color: #f9f9f9;
+}
+
+.dashboardBody {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
 }
 
 .mainContent {
@@ -14,5 +21,4 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
-  margin-top: 2rem;
 }

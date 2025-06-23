@@ -2,20 +2,23 @@
   width: 100%;
   background-color: #ffffff;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   border-bottom: 1px solid #e0e0e0;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  justify-content: space-between;
+}
+
+.left {
+  margin-right: 2rem;
 }
 
 .search {
+  flex: 1;
   display: flex;
   align-items: center;
   position: relative;
-  width: 300px;
+  max-width: 400px;
+  margin: 0 2rem;
 }
 
 .search input {
@@ -30,16 +33,23 @@
 
 .search button {
   position: absolute;
-  right: 10px;
-  background: none;
+  right: 0;
+  background: #39CDCC;
   border: none;
   cursor: pointer;
+  padding: 0.6rem;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .profile {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+}
+
+.profileImage{
+  border-radius: 100%;
 }
 
 .profile a {
@@ -53,14 +63,11 @@
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  background-color: #f3f6f9;
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
   cursor: pointer;
 }
 
 .avatar span {
-  font-size: 0.9rem;
+  font-size: 16px;
   font-weight: 500;
   color: #213f7d;
 }

@@ -43,9 +43,9 @@ const menuGroups = [
 export default function Sidebar() {
   return (
     <aside className={styles.sidebar}>
-      <div className={styles.logo}>
+      {/* <div className={styles.logo}>
         <Image src="/logo.svg" alt="Lendsqr Logo" width={140} height={30} />
-      </div>
+      </div> */}
       <nav className={styles.nav}>
         <ul>
           {menuGroups.map((group, gIndex) => (
