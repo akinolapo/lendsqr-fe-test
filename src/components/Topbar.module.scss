@@ -71,3 +71,47 @@
   font-weight: 500;
   color: #213f7d;
 }
+
+@media (max-width: 768px) {
+  .topbar {
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .left {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .search {
+    flex: 1 1 100%;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .search input {
+    font-size: 0.85rem;
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
+  }
+
+  .search button {
+    padding: 0.5rem;
+  }
+
+  .profile {
+    flex: 1 1 100%;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .avatar span {
+    font-size: 0.9rem;
+  }
+
+  .profile a {
+    font-size: 0.85rem;
+  }
+}
+

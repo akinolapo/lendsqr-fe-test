@@ -58,3 +58,32 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: #fff;
+    transition: left 0.3s ease-in-out;
+    padding: 2rem 1rem;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .navItem {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .section {
+    font-size: 0.7rem;
+    margin-top: 1.2rem;
+  }
+}
+
