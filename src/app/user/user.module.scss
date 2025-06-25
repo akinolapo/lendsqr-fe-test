@@ -1,0 +1,212 @@
+.userDetailsLayout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.userDetailsBody {
+  display: flex;
+  flex: 1;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f5f6fa;
+  overflow-y: auto;
+}
+
+.pageHeader {
+  margin-bottom: 1.5rem;
+}
+
+.backLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #545f7d;
+  cursor: pointer;
+  margin-bottom: 0.8rem;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  h2 {
+    font-size: 1.2rem;
+    color: #213f7d;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+
+  button {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 5px;
+    text-transform: uppercase;
+    border: 1px solid;
+    cursor: pointer;
+  }
+
+  .blacklist {
+    color: #e4033b;
+    border-color: #e4033b;
+    background: transparent;
+  }
+
+  .activate {
+    color: #39cdcc;
+    border-color: #39cdcc;
+    background: transparent;
+  }
+}
+
+.userCard {
+  background: white;
+  border-radius: 6px;
+  padding: 2rem;
+  padding-bottom: 0;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.userHeader {
+  display: flex;
+  gap: 64px;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.userInfo {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #213f7d;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #545f7d;
+  }
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background: #d3d3d3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; // optional: clips the image if it overflows
+}
+
+.userTier{
+   border-right: 2px solid #e0e0e0;
+   border-left: 2px solid #e0e0e0;
+   padding: 20px 30px;
+}
+
+.userTier p {
+  font-size: 0.85rem;
+  margin: 0;
+  color: #999;
+  text-align: center;
+}
+
+.userTier .stars {
+  color: #e9b200;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.userBank {
+  text-align: right;
+
+  h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #213f7d;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #888;
+  }
+}
+
+.tabs {
+  display: flex;
+  gap: 64px;
+  margin-top: 30px;
+//   border-bottom: 1px solid #e0e0e0;
+//   padding-bottom: 0.5rem;
+  overflow-x: auto;
+
+  span {
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: #666;
+    white-space: nowrap;
+
+    &.active {
+      color: #39cdcc;
+      border-bottom: 2px solid #39cdcc;
+      padding-bottom: 0.4rem;
+    }
+  }
+}
+
+.detailSection {
+  background: white;
+  border-radius: 6px;
+  padding: 2rem;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.04);
+
+  h4 {
+    font-size: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #213f7d;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+
+  div {
+    p {
+      margin: 0;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #999;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    span {
+      font-size: 0.85rem;
+      color: #333;
+    }
+  }
+}
+
