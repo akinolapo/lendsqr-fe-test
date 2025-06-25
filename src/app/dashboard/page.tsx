@@ -5,8 +5,8 @@ import styles from './dashboard.module.scss';
 import Sidebar from '@/components/Sidebar';
 import Topbar from '@/components/Topbar';
 import StatCard from '@/components/StatCard';
-import { ChevronLeft, ChevronRight, ListFilter } from 'lucide-react';
 import Image from 'next/image';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const USERS_PER_PAGE = 10;
 
@@ -22,10 +22,12 @@ type User = {
 export default function DashboardPage() {
   const [users, setUsers] = useState<User[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [activeFilterIndex, setActiveFilterIndex] = useState<number | null>(null);
+  const [activeMenuIndex, setActiveMenuIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const res = await fetch('https://api.csvgetter.com/JxqPfahnZmtff7JKAV7z?type=json_records');
+      const res = await fetch('/data.json');
       const data = await res.json();
       setUsers(data);
     };
@@ -42,6 +44,8 @@ export default function DashboardPage() {
   const getStatusClass = (status: string) => {
     return styles[status.toLowerCase()] || '';
   };
+
+  const columns = ['ORGANIZATION', 'USERNAME', 'EMAIL', 'PHONE NUMBER', 'DATE JOINED', 'STATUS'];
 
   return (
     <div className={styles.dashboardLayout}>
@@ -64,48 +68,66 @@ export default function DashboardPage() {
             <table>
               <thead>
                 <tr>
-                  <th>
-                    ORGANIZATION <Image src="/icons/filter-results-button.svg"
-                      alt="Dropdown"
-                      width={12}
-                      height={12}
-                      className={styles.filterIcon}/>
-                  </th>
-                  <th>
-                    USERNAME <Image src="/icons/filter-results-button.svg"
-                      alt="Dropdown"
-                      width={12}
-                      height={12}
-                      className={styles.filterIcon}/>
-                  </th>
-                  <th>
-                    EMAIL <Image src="/icons/filter-results-button.svg"
-                      alt="Dropdown"
-                      width={12}
-                      height={12}
-                      className={styles.filterIcon}/>
-                  </th>
-                  <th>
-                    PHONE NUMBER <Image src="/icons/filter-results-button.svg"
-                      alt="Dropdown"
-                      width={12}
-                      height={12}
-                      className={styles.filterIcon}/>
-                  </th>
-                  <th>
-                    DATE JOINED <Image src="/icons/filter-results-button.svg"
-                      alt="Dropdown"
-                      width={12}
-                      height={12}
-                      className={styles.filterIcon}/>
-                  </th>
-                  <th>
-                    STATUS <Image src="/icons/filter-results-button.svg"
-                      alt="Dropdown"
-                      width={12}
-                      height={12}
-                      className={styles.filterIcon}/>
-                  </th>
+                  {columns.map((col, index) => (
+                    <th key={index}>
+                      {col}
+                      <Image
+                        src="/icons/filter-results-button.svg"
+                        alt="Filter"
+                        width={12}
+                        height={12}
+                        className={styles.filterIcon}
+                        onClick={() =>
+                          setActiveFilterIndex(activeFilterIndex === index ? null : index)
+                        }
+                      />
+                      {activeFilterIndex === index && (
+                        <div className={styles.filterDropdown}>
+                          <form>
+                            <label>
+                              Organization
+                              <select>
+                                <option>Select</option>
+                              </select>
+                            </label>
+                            <label>
+                              Username
+                              <input type="text" placeholder="User" />
+                            </label>
+                            <label>
+                              Email
+                              <input type="email" placeholder="Email" />
+                            </label>
+                            <label>
+                              Date
+                              <div className={styles.dateInput}>
+                                <input type="date" />
+                              </div>
+                            </label>
+                            <label>
+                              Phone Number
+                              <input type="text" placeholder="Phone Number" />
+                            </label>
+                            <label>
+                              Status
+                              <select>
+                                <option>Select</option>
+                              </select>
+                            </label>
+                            <div className={styles.filterActions}>
+                              <button type="button" className={styles.resetBtn}>
+                                Reset
+                              </button>
+                              <button type="submit" className={styles.filterBtn}>
+                                Filter
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                      )}
+                    </th>
+                  ))}
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -121,7 +143,25 @@ export default function DashboardPage() {
                         {user.status}
                       </span>
                     </td>
-                    <td><Image src="/icons/dot.svg" alt='action' width={20} height={20}/></td>
+                    <td className={styles.actionCell}>
+                      <Image
+                        src="/icons/dot.svg"
+                        alt="Action"
+                        width={20}
+                        height={20}
+                        className={styles.actionIcon}
+                        onClick={() =>
+                          setActiveMenuIndex(activeMenuIndex === i ? null : i)
+                        }
+                      />
+                      {activeMenuIndex === i && (
+                        <div className={styles.dropdownMenu}>
+                          <div><Image src="/icons/eye.svg" alt="view" width={16} height={16} /> View Details</div>
+                          <div><Image src="/icons/blacklist.svg" alt="blacklist" width={16} height={16} /> Blacklist User</div>
+                          <div><Image src="/icons/activate.svg" alt="activate" width={16} height={16} /> Activate User</div>
+                        </div>
+                      )}
+                    </td>
                   </tr>
                 ))}
               </tbody>
