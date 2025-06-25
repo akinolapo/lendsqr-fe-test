@@ -2,6 +2,12 @@
 
 import Image from 'next/image';
 import styles from './Sidebar.module.scss';
+import { X } from 'lucide-react';
+
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
 
 const menuGroups = [
   {
@@ -40,12 +46,15 @@ const menuGroups = [
   // Add more sections here as needed
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   return (
-    <aside className={styles.sidebar}>
+    <aside className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
       {/* <div className={styles.logo}>
         <Image src="/logo.svg" alt="Lendsqr Logo" width={140} height={30} />
       </div> */}
+      <div className={styles.closeIcon} onClick={onClose}>
+        <X size={20} />
+      </div>
       <nav className={styles.nav}>
         <ul>
           {menuGroups.map((group, gIndex) => (

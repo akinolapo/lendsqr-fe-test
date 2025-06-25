@@ -87,3 +87,30 @@
   }
 }
 
+.closeIcon {
+  display: none;
+} 
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 998;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    display: block;
+  }
+
+  .closeIcon {
+    display: block;
+    text-align: right;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
+}

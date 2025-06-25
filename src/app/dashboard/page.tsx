@@ -20,6 +20,7 @@ type User = {
 };
 
 export default function DashboardPage() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [users, setUsers] = useState<User[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [activeFilterIndex, setActiveFilterIndex] = useState<number | null>(null);
@@ -46,12 +47,16 @@ export default function DashboardPage() {
   };
 
   const columns = ['ORGANIZATION', 'USERNAME', 'EMAIL', 'PHONE NUMBER', 'DATE JOINED', 'STATUS'];
+  const toggleSidebar = () => setSidebarOpen(prev => !prev);
 
   return (
     <div className={styles.dashboardLayout}>
-      <Topbar />
+      <Topbar onToggleSidebar={toggleSidebar} />
+       {sidebarOpen && (
+      <div className={styles.overlay} onClick={() => setSidebarOpen(false)} />
+    )}
       <div className={styles.dashboardBody}>
-        <Sidebar />
+        <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main className={styles.mainContent}>
           <div className={styles.header}>
             <h2>Users</h2>

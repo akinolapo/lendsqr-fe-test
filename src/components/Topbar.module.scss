@@ -115,3 +115,18 @@
   }
 }
 
+.mobileMenu {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .mobileMenu {
+    display: block;
+    margin-right: 1rem;
+  }
+
+  .left {
+    display: none; // Hide logo since menu is shown
+  }
+}
