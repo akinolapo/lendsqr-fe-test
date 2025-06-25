@@ -157,8 +157,8 @@ export default function DashboardPage() {
                       {activeMenuIndex === i && (
                         <div className={styles.dropdownMenu}>
                           <div><Image src="/icons/eye.svg" alt="view" width={16} height={16} /> View Details</div>
-                          <div><Image src="/icons/blacklist.svg" alt="blacklist" width={16} height={16} /> Blacklist User</div>
-                          <div><Image src="/icons/activate.svg" alt="activate" width={16} height={16} /> Activate User</div>
+                          <div><Image src="/icons/karma.svg" alt="blacklist" width={16} height={16} /> Blacklist User</div>
+                          <div><Image src="/icons/whitelist.svg" alt="activate" width={16} height={16} /> Activate User</div>
                         </div>
                       )}
                     </td>
