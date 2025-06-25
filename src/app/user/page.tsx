@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Sidebar from '@/components/Sidebar';
 import Topbar from '@/components/Topbar';
 import styles from './user.module.scss';
@@ -7,11 +8,13 @@ import { ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
 
 export default function UserDetailsPage() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+   const toggleSidebar = () => setSidebarOpen(prev => !prev);
   return (
     <div className={styles.userDetailsLayout}>
-      <Topbar />
+      <Topbar onToggleSidebar={toggleSidebar} />
       <div className={styles.userDetailsBody}>
-        <Sidebar />
+        <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main className={styles.mainContent}>
           <div className={styles.pageHeader}>
             <div className={styles.backLink}>
