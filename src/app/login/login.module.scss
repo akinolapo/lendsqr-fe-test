@@ -1,8 +1,14 @@
 .container {
   display: flex;
+  flex-direction: row;
   height: 100vh;
   background-color: #FEFEFE;
   font-family: Arial, Helvetica, sans-serif;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+  }
 }
 
 .left {
@@ -17,13 +23,26 @@
   .logo {
     font-size: 1.8rem;
     font-weight: bold;
-    margin-bottom: 8rem;
+    margin-bottom: 6rem;
     margin-right: 50%;
+
+    @media (max-width: 768px) {
+      margin: 2rem auto;
+    }
   }
 
   .image {
-    max-width: 90%;
+    max-width: 100%;
     height: auto;
+
+    @media (max-width: 768px) {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 1rem;
   }
 }
 
@@ -36,33 +55,38 @@
   padding: 4rem;
 
   h2 {
-    font-size: 40px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: -4%;
-    line-height: 100%;
     margin-bottom: 20px;
     color: #213F7D;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+      text-align: center;
+    }
   }
 
   p {
     margin-bottom: 20px;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 100%;
-    letter-spacing: 0%;
+    font-size: 1.2rem;
     color: #545F7D;
+
+    @media (max-width: 768px) {
+      text-align: center;
+    }
   }
 
   .form {
     display: flex;
     flex-direction: column;
+    max-width: 100%;
 
     input {
-      margin-top: 0.5rem;
-      margin-bottom: 10px;
+      margin: 0.5rem 0;
       padding: 1rem;
       border: 1px solid #ccc;
       border-radius: 5px;
+      font-size: 1rem;
     }
 
     .forgotPassword {
@@ -92,5 +116,10 @@
         background-color: #2bb7b5;
       }
     }
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 2rem;
   }
 }
