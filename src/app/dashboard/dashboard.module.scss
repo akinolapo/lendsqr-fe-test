@@ -35,9 +35,13 @@
   padding: 1rem;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
   position: relative;
+  // Add this to enable horizontal scrolling on small screens
+  overflow-x: auto;
+  width: 100%;
 
   table {
     width: 100%;
+    min-width: 800px;
     border-collapse: collapse;
 
     th, td {
