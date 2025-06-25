@@ -122,8 +122,11 @@
 
 @media (max-width: 768px) {
   .mobileMenu {
-    display: block;
-    margin-right: 1rem;
+    display: flex;
+    justify-content: space-between; // space out menu and logo
+    align-items: center;
+    width: 100%; // make it stretch full width
+    padding: 1rem;
   }
 
   .left {

@@ -14,6 +14,7 @@ export default function Topbar({ onToggleSidebar }: TopbarProps) {
       {/* Hamburger only on mobile */}
       <div className={styles.mobileMenu} onClick={onToggleSidebar}>
         <Menu size={24} />
+        <Image src="/logo.svg" alt="Lendsqr Logo" width={140} height={30} />
       </div>
 
       <div className={styles.left}>
